@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+</head>
+<body>
+    <h1>Content-Based Movie Recommender</h1>
+
+    <!-- Form to enter the movie title -->
+    <form method="POST">
+        <label for="movieTitle">Enter a Movie Title:</label>
+        <input type="text" id="movieTitle" name="movieTitle" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if recommendations %}
+    <h2>Recommendations for "{{ request.form['movieTitle'] }}":</h2>
+    <ul>
+        {% for movie in recommendations %}
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
